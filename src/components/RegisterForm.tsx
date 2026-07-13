@@ -74,7 +74,8 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onAuth, isLoading, u
     setAvatarSeed(`${selected.seed}-${Math.floor(Math.random() * 1000)}`);
   };
 
-  const isProdMissingKeys = import.meta.env.PROD && !isSupabaseConfigured;
+  // Supabase is optional on Render because Express serves the API.
+  const isProdMissingKeys = false;
 
   if (isProdMissingKeys) {
     return (
