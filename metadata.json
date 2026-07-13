@@ -1,0 +1,6 @@
+{
+  "name": "Luminal Space",
+  "description": "A minimalistic modern dark-themed messaging and real-time video calling platform with interactive 3D moving glow UI elements and WebRTC connectivity.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
