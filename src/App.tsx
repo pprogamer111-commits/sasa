@@ -222,10 +222,6 @@ export default function App() {
     }
 
     // Fallback Local API
-    if (import.meta.env.PROD) {
-      console.warn('Local API directory lookup bypassed in production build.');
-      return;
-    }
     try {
       const res = await fetch('/api/users');
       const data = await res.json();
@@ -259,10 +255,6 @@ export default function App() {
     }
 
     // Fallback Local API
-    if (import.meta.env.PROD) {
-      console.warn('Local API messages sync bypassed in production build.');
-      return;
-    }
     try {
       const res = await fetch(`/api/messages?userId=${userId}&contactId=${contactId}`);
       const data = await res.json();
@@ -373,10 +365,6 @@ export default function App() {
       };
     } else {
       // Fallback: Local Server-Sent Events (SSE)
-      if (import.meta.env.PROD) {
-        console.warn('Local SSE EventSource subscription bypassed in production build.');
-        return;
-      }
       const source = new EventSource(`/api/events?userId=${currentUser.id}`);
       sseSourceRef.current = source;
 
@@ -530,9 +518,6 @@ export default function App() {
       }
 
       // Fallback: Local API
-      if (import.meta.env.PROD) {
-        throw new Error('Local API authentication is unavailable in production. Please check your Supabase credentials.');
-      }
       const res = await fetch('/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -585,10 +570,6 @@ export default function App() {
     }
 
     // Fallback: Local API
-    if (import.meta.env.PROD) {
-      console.warn('Local API profile update bypassed in production build.');
-      return;
-    }
     try {
       const res = await fetch('/api/users/profile', {
         method: 'POST',
@@ -677,10 +658,6 @@ export default function App() {
     }
 
     // Fallback: Local API
-    if (import.meta.env.PROD) {
-      console.warn('Local API message sending bypassed in production build.');
-      return;
-    }
     try {
       await fetch('/api/messages', {
         method: 'POST',
@@ -938,10 +915,6 @@ export default function App() {
     }
 
     // Fallback Local API
-    if (import.meta.env.PROD) {
-      console.warn('Local API WebRTC signaling bypassed in production build.');
-      return;
-    }
     try {
       await fetch('/api/signal', {
         method: 'POST',
